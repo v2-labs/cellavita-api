@@ -31,4 +31,10 @@ return array(
 			'Donors\Model\DonorsTable' => 'Donors\Model\DonorsTable',
 		),
 	),
+	'controllers' => array(
+		'factories' => array(
+			'Donors\Controller\Index' =>
+			'Donors\Controller\Factory\IndexControllerFactory',
+		),
+	),
 );

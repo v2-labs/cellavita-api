@@ -15,18 +15,18 @@ use Zend\Mvc\Controller\ControllerManager;
 
 class Module
 {
-	public function getControllerConfig() {
-		return array(
-			'factories' => array(
-				'Donors\Controller\Index' => function(ControllerManager $cm) {
-					$sm = $cm->getServiceLocator();
-					$donorModel = $sm->get('Donors\Model\DonorsTable');
-					$controller = new Donors\Controller\IndexController($donorModel);
-					return $controller;
-				},
-			),
-		);
-	}
+	#public function getControllerConfig() {
+	#	return array(
+	#		'factories' => array(
+	#			'Donors\Controller\Index' => function(ControllerManager $cm) {
+	#				$sm = $cm->getServiceLocator();
+	#				$donorModel = $sm->get('Donors\Model\DonorsTable');
+	#				$controller = new Donors\Controller\IndexController($donorModel);
+	#				return $controller;
+	#			},
+	#		),
+	#	);
+	#}
 
 	public function getConfig() {
 		return include __DIR__ . '/config/module.config.php';
