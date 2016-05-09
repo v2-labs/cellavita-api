@@ -15,7 +15,7 @@ return array(
 			'donors' => array(
 				'type' => 'Zend\Mvc\Router\Http\Segment',
 				'options' => array(
-					'route' => '/api/donors[/:id]',
+					'route' => '/api/1.0/donors[/:id]',
 					'constrains' => array(
 						'id' => '\w+',
 					),
