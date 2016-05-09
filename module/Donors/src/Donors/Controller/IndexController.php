@@ -29,16 +29,7 @@ class IndexController extends AbstractRestfulController
 		}
 	}
 
-	#protected function getDonorsTable() {
-	#	if (! $this->donorsTable) {
-	#		$sm = $this->getServiceLocator();
-	#		$this->donorsTable = $sm->get('Donors\Model\DonorsTable');
-	#	}
-	#	return $this->donorsTable;
-	#}
-
 	public function get($cpf) {
-		#$donorsTable = $this->getDonorsTable();
 		$donorData = $this->_donorsTable->getByCpf($cpf);
 
 		if ($donorData !== false) {
