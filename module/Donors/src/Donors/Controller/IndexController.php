@@ -32,7 +32,7 @@ class IndexController extends AbstractRestfulController
 	public function get($cpf) {
 		$donorData = $this->_donorsTable->getByCpf($cpf);
 
-		if ($donorData !== false) {
+		if ($donorData !== null) {
 			return new JsonModel($donorData->getArrayCopy());
 		}
 		else {
