@@ -26,15 +26,16 @@ return array(
 			),
 		),
 	),
-	'di' => array(
-		'services' => array(
-			'Donors\Model\DonorsTable' => 'Donors\Model\DonorsTable',
+	'service_manager' => array(
+		'invokables' => array(
+			'Donors\Model\DonorsTable'
+				=> 'Donors\Model\DonorsTable',
 		),
 	),
 	'controllers' => array(
 		'factories' => array(
-			'Donors\Controller\Index' =>
-			'Donors\Controller\Factory\IndexControllerFactory',
+			'Donors\Controller\Index'
+				=> 'Donors\Controller\Factory\IndexControllerFactory',
 		),
 	),
 );

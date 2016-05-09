@@ -15,19 +15,6 @@ use Zend\Mvc\Controller\ControllerManager;
 
 class Module
 {
-	#public function getControllerConfig() {
-	#	return array(
-	#		'factories' => array(
-	#			'Donors\Controller\Index' => function(ControllerManager $cm) {
-	#				$sm = $cm->getServiceLocator();
-	#				$donorModel = $sm->get('Donors\Model\DonorsTable');
-	#				$controller = new Donors\Controller\IndexController($donorModel);
-	#				return $controller;
-	#			},
-	#		),
-	#	);
-	#}
-
 	public function getConfig() {
 		return include __DIR__ . '/config/module.config.php';
 	}
@@ -41,4 +28,29 @@ class Module
 			),
 		);
 	}
+
+	public function getServiceConfig() {
+		return array(
+			'initializers' => array(
+				function($instance, $sm) {
+					if ($instance instanceof \Zend\Db\Adapter\AdapterAwareInterface) {
+						$instance->setDbAdapter($sm->get('\Zend\Db\Adapter\Adapter'));
+					}
+				}
+			)
+		);
+	}
+
+	#public function getControllerConfig() {
+	#	return array(
+	#		'factories' => array(
+	#			'Donors\Controller\Index' => function(ControllerManager $cm) {
+	#				$sm = $cm->getServiceLocator();
+	#				$donorModel = $sm->get('Donors\Model\DonorsTable');
+	#				$controller = new Donors\Controller\IndexController($donorModel);
+	#				return $controller;
+	#			},
+	#		),
+	#	);
+	#}
 }
