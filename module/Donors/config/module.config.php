@@ -110,12 +110,8 @@ return array(
 		'invokables' => array(
 			'Donors\Model\DonorsTable'
 				=> 'Donors\Model\DonorsTable',
-		),
-	),
-	'controllers' => array(
-		'factories' => array(
-			'Donors\Controller\Index'
-				=> 'Donors\Controller\Factory\IndexControllerFactory',
+			'Donors\Model\TelephonesTable'
+				=> 'Donors\Model\TelephonesTable',
 		),
 	),
 );
