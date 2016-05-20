@@ -12,9 +12,9 @@ namespace Donors\Controller\Factory;
 use Zend\ServiceManager\FactoryInterface;
 use Zend\ServiceManager\ServiceLocatorInterface;
 use Zend\ServiceManager\Exception\ServiceNotCreatedException;
-use Donors\Controller\IndexController;
+use Donors\Controller\DonorsController;
 
-class IndexControllerFactory implements FactoryInterface
+class DonorsControllerFactory implements FactoryInterface
 {
     public function createService(ServiceLocatorInterface $serviceLocator) {
         $sm = $serviceLocator->getServiceLocator();
@@ -26,7 +26,7 @@ class IndexControllerFactory implements FactoryInterface
             $donorsTable = null;
         }
 
-        $controller = new IndexController($donorsTable);
+        $controller = new DonorsController($donorsTable);
         return $controller;
     }
 }

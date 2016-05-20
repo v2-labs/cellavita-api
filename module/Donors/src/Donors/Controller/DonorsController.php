@@ -13,7 +13,7 @@ use Zend\View\Model\JsonModel;
 use Zend\Mvc\Controller\AbstractRestfulController;
 use Donors\Model\DonorsTable;
 
-class IndexController extends AbstractRestfulController
+class DonorsController extends AbstractRestfulController
 {
 	protected $_donorsTable;
 
