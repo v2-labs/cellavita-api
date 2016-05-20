@@ -32,7 +32,7 @@ return array(
 			'donors' => array(
 				'type' => 'Zend\Mvc\Router\Http\Segment',
 				'options' => array(
-					'route' => '/api/1.0/donors[/:id]',
+					'route' => '/v1/donors[/:id]',
 					'constrains' => array(
 						'id' => '\w+',
 					),
