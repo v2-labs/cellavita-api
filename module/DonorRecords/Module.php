@@ -7,7 +7,7 @@
  * @license   http://framework.zend.com/license/new-bsd New BSD License
  */
 
-namespace Donors;
+namespace DonorRecords;
 
 use Zend\Mvc\MvcEvent;
 use Zend\Mvc\ModuleRouteListener;
@@ -23,7 +23,12 @@ class Module
 		return array(
 			'Zend\Loader\StandardAutoloader' => array(
 				'namespaces' => array(
-					__NAMESPACE__ => __DIR__ . '/src/' . __NAMESPACE__,
+					'Cells'      => __DIR__ . '/src/Cells',
+					'Donors'     => __DIR__ . '/src/Donors',
+					'Travels'    => __DIR__ . '/src/Travels',
+					'Vaccines'   => __DIR__ . '/src/Vaccines',
+					'Addresses'  => __DIR__ . '/src/Addresses',
+					'Telephones' => __DIR__ . '/src/Telephones',
 				),
 			),
 		);

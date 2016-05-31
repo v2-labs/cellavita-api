@@ -29,11 +29,11 @@ class DonorsController extends AbstractRestfulController
 		}
 	}
 
-	public function get($cpf) {
-		$donorData = $this->_donorsTable->getByCpf($cpf);
+	public function get($id) {
+		$donorData = $this->_donorsTable->getById($id);
 
-		if ($donorData !== null) {
-			return new JsonModel($donorData->getArrayCopy());
+		if ($donorData !== null && !empty($donorData)) {
+			return new JsonModel($donorData);
 		}
 		else {
 			throw new \Exception('User not found', 404);
@@ -41,7 +41,14 @@ class DonorsController extends AbstractRestfulController
 	}
 
 	public function getList() {
-		$this->methodNotAllowed();
+		$donorData = $this->_donorsTable->getAll();
+
+		if ($donorData !== null && !empty($donorData)) {
+			return new JsonModel($donorData);
+		}
+		else {
+			throw new \Exception('No data found', 404);
+		}
 	}
 
 	public function create($data) {
@@ -54,5 +61,44 @@ class DonorsController extends AbstractRestfulController
 
 	public function delete($id) {
 		$this->methodNotAllowed();
+	}
+
+	// Custom methods for searching
+	public function searchcpfAction() {
+		// Get the $cpf parameter from route if available
+		$cpf = $this->params()->fromRoute('cpf', null);
+
+		if ($cpf !== null) {
+			$donorData = $this->_donorsTable->searchCpf($cpf);
+
+			if ($donorData !== null && !empty($donorData)) {
+				return new JsonModel($donorData);
+			}
+			else {
+				throw new \Exception('No entries found', 404);
+			}
+		}
+		else {
+			throw new \Exception('Missing API parameter', 501);
+		}
+	}
+
+	public function searchnameAction() {
+		// Get the $name parameter from route if available
+		$name = $this->params()->fromRoute('name', null);
+
+		if ($name !== null) {
+			$donorData = $this->_donorsTable->searchName($name);
+
+			if ($donorData !== null && !empty($donorData)) {
+				return new JsonModel($donorData);
+			}
+			else {
+				throw new \Exception('No entries found', 404);
+			}
+		}
+		else {
+			throw new \Exception('Missing API parameter', 502);
+		}
 	}
 }

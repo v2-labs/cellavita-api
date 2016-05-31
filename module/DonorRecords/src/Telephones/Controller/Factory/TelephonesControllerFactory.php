@@ -12,9 +12,9 @@ namespace Telephones\Controller\Factory;
 use Zend\ServiceManager\FactoryInterface;
 use Zend\ServiceManager\ServiceLocatorInterface;
 use Zend\ServiceManager\Exception\ServiceNotCreatedException;
-use Telephones\Controller\IndexController;
+use Telephones\Controller\TelephonesController;
 
-class IndexControllerFactory implements FactoryInterface
+class TelephonesControllerFactory implements FactoryInterface
 {
     public function createService(ServiceLocatorInterface $serviceLocator) {
         $sm = $serviceLocator->getServiceLocator();
@@ -26,7 +26,7 @@ class IndexControllerFactory implements FactoryInterface
             $telephonesTable = null;
         }
 
-        $controller = new IndexController($telephonesTable);
+        $controller = new TelephonesController($telephonesTable);
         return $controller;
     }
 }

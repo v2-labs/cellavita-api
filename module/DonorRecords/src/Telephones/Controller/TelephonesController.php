@@ -13,7 +13,7 @@ use Zend\View\Model\JsonModel;
 use Zend\Mvc\Controller\AbstractRestfulController;
 use Telephones\Model\TelephonesTable;
 
-class IndexController extends AbstractRestfulController
+class TelephonesController extends AbstractRestfulController
 {
 	protected $_telephonesTable;
 
@@ -30,18 +30,23 @@ class IndexController extends AbstractRestfulController
 	}
 
 	public function get($id) {
-		$telephonesData = $this->_telephonesTable->getById($id);
+		// The $id here represents the Donor ID, as we should collect the
+		// $phoneId parameter from the router
+		$phoneId = $this->params()->fromRoute('phoneId', null);
 
-		if ($telephonesData !== null) {
-			return new JsonModel($telephonesData->getArrayCopy());
+		if ($phoneId === null) {
+			$telephoneData = $this->_telephonesTable->getDonorPhones($id);
 		}
 		else {
-			throw new \Exception('Telephone not found', 404);
+			$telephoneData = $this->_telephonesTable->getDonorPhoneID($id, $phoneId);
 		}
-	}
 
-	public function getList() {
-		$this->methodNotAllowed();
+		if ($telephoneData !== null && !empty($telephoneData)) {
+			return new JsonModel($telephoneData);
+		}
+		else {
+			throw new \Exception('No data found', 404);
+		}
 	}
 
 	public function create($data) {

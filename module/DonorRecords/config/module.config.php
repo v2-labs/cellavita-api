@@ -14,91 +14,124 @@ return array(
 		'factories' => array(
 			'Donors\Controller\Index'
 				=> 'Donors\Controller\Factory\DonorsControllerFactory',
-			'Donors\Controller\Telephones'
-				=> 'Donors\Controller\Factory\TelephonesControllerFactory',
-			'Donors\Controller\Vaccines'
-				=> 'Donors\Controller\Factory\VaccinesControllerFactory',
-			'Donors\Controller\Travels'
-				=> 'Donors\Controller\Factory\TravelsControllerFactory',
-			'Donors\Controller\Addresses'
-				=> 'Donors\Controller\Factory\AddressesControllerFactory',
-			'Donors\Controller\Cells'
-				=> 'Donors\Controller\Factory\CellsControllerFactory',
+			'Telephones\Controller\Telephones'
+				=> 'Telephones\Controller\Factory\TelephonesControllerFactory',
+			'Vaccines\Controller\Vaccines'
+				=> 'Vaccines\Controller\Factory\VaccinesControllerFactory',
+			'Travels\Controller\Travels'
+				=> 'Travels\Controller\Factory\TravelsControllerFactory',
+			'Addresses\Controller\Addresses'
+				=> 'Addresses\Controller\Factory\AddressesControllerFactory',
+			'Cells\Controller\Cells'
+				=> 'Cells\Controller\Factory\CellsControllerFactory',
 		),
 	),
 	'router' => array(
 		'routes' => array(
 			// Root route base entry
 			'donors' => array(
-				'type' => 'Zend\Mvc\Router\Http\Segment',
+				'type' => 'Zend\Mvc\Router\Http\Literal',
 				'options' => array(
-					'route' => '/v1/donors[/:id]',
-					'constrains' => array(
-						'id' => '\w+',
-					),
+					'route' => '/v1/donors',
 					'defaults' => array(
 						'controller' => 'Donors\Controller\Index',
 					),
 				),
-				'may_terminate' => true,
+				'may_terminate' => false,
 				'child_routes' => array(
-					'telephones' => array(
+					'searchCPF' => array(
 						'type' => 'Zend\Mvc\Router\Http\Segment',
 						'options' => array(
-							'route' => '/telephones[/:id]',
+							'route' => '/searchcpf/:cpf',
 							'constrains' => array(
-								'id' => '\w+',
+								'cpf' => '[0-9]+',
 							),
 							'defaults' => array(
-								'controller' => 'Donors\Controller\Telephones',
+								'action' => 'searchcpf',
 							),
 						),
 					),
-					'vaccines' => array(
+					'searchName' => array(
 						'type' => 'Zend\Mvc\Router\Http\Segment',
 						'options' => array(
-							'route' => '/vaccines[/:id]',
+							'route' => '/searchname/:name',
 							'constrains' => array(
-								'id' => '\w+',
+								'name' => '[a-zA-Z ]+',
 							),
 							'defaults' => array(
-								'controller' => 'Donors\Controller\Vaccines',
+								'action' => 'searchname',
 							),
 						),
 					),
-					'travels' => array(
+					'data' => array(
 						'type' => 'Zend\Mvc\Router\Http\Segment',
 						'options' => array(
-							'route' => '/travels[/:id]',
+							'route' => '[/:id]',
 							'constrains' => array(
-								'id' => '\w+',
-							),
-							'defaults' => array(
-								'controller' => 'Donors\Controller\Travels',
+								'id' => '[0-9]+',
 							),
 						),
-					),
-					'addresses' => array(
-						'type' => 'Zend\Mvc\Router\Http\Segment',
-						'options' => array(
-							'route' => 'addresses[/:id]',
-							'constrains' => array(
-								'id' => '\w+',
+						'may_terminate' => true,
+						'child_routes' => array(
+							'telephones' => array(
+								'type' => 'Zend\Mvc\Router\Http\Segment',
+								'options' => array(
+									'route' => '/telephones[/:phoneId]',
+									'constrains' => array(
+										'phoneId' => '[0-9]+',
+									),
+									'defaults' => array(
+										'controller' => 'Telephones\Controller\Telephones',
+									),
+								),
 							),
-							'defaults' => array(
-								'controller' => 'Donors\Controller\Addresses',
+							'vaccines' => array(
+								'type' => 'Zend\Mvc\Router\Http\Segment',
+								'options' => array(
+									'route' => '/vaccines[/:vaccineId]',
+									'constrains' => array(
+										'vaccineId' => '\w+',
+									),
+									'defaults' => array(
+										'controller' => 'Vaccines\Controller\Vaccines',
+									),
+								),
 							),
-						),
-					),
-					'cells' => array(
-						'type' => 'Zend\Mvc\Router\Http\Segment',
-						'options' => array(
-							'route' => '/cells[/:id]',
-							'constrains' => array(
-								'id' => '\w+',
+							'travels' => array(
+								'type' => 'Zend\Mvc\Router\Http\Segment',
+								'options' => array(
+									'route' => '/travels[/:travelId]',
+									'constrains' => array(
+										'travelId' => '\w+',
+									),
+									'defaults' => array(
+										'controller' => 'Travels\Controller\Travels',
+									),
+								),
 							),
-							'defaults' => array(
-								'controller' => 'Donors\Controller\Cells',
+							'addresses' => array(
+								'type' => 'Zend\Mvc\Router\Http\Segment',
+								'options' => array(
+									'route' => 'addresses[/:addressId]',
+									'constrains' => array(
+										'addressId' => '\w+',
+									),
+									'defaults' => array(
+										'controller' => 'Addresses\Controller\Addresses',
+									),
+								),
+							),
+							'cells' => array(
+								'type' => 'Zend\Mvc\Router\Http\Segment',
+								'options' => array(
+									'route' => '/cells[/:cellId]',
+									'constrains' => array(
+										'cellId' => '\w+',
+									),
+									'defaults' => array(
+										'controller' => 'Cells\Controller\Cells',
+									),
+								),
 							),
 						),
 					),
@@ -108,10 +141,18 @@ return array(
 	),
 	'service_manager' => array(
 		'invokables' => array(
+			'Cells\Model\CellsTable'
+				=> 'Cells\Model\CellsTable',
 			'Donors\Model\DonorsTable'
 				=> 'Donors\Model\DonorsTable',
-			'Donors\Model\TelephonesTable'
-				=> 'Donors\Model\TelephonesTable',
+			'Travels\Model\TravelsTable'
+				=> 'Travels\Model\TravelsTable',
+			'Vaccines\Model\VaccinesTable'
+				=> 'Vaccines\Model\VaccinesTable',
+			'Addresses\Model\AddressesTable'
+				=> 'Addresses\Model\AddressesTable',
+			'Telephones\Model\TelephonesTable'
+				=> 'Telephones\Model\TelephonesTable',
 		),
 	),
 );
