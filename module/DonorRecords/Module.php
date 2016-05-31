@@ -40,17 +40,4 @@ class Module
 			)
 		);
 	}
-
-	#public function getControllerConfig() {
-	#	return array(
-	#		'factories' => array(
-	#			'Donors\Controller\Index' => function(ControllerManager $cm) {
-	#				$sm = $cm->getServiceLocator();
-	#				$donorModel = $sm->get('Donors\Model\DonorsTable');
-	#				$controller = new Donors\Controller\IndexController($donorModel);
-	#				return $controller;
-	#			},
-	#		),
-	#	);
-	#}
 }
