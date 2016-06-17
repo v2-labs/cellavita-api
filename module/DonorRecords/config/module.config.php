@@ -24,6 +24,8 @@ return array(
 				=> 'Addresses\Controller\Factory\AddressesControllerFactory',
 			'Cells\Controller\Cells'
 				=> 'Cells\Controller\Factory\CellsControllerFactory',
+			'Exams\Controller\Exams'
+				=> 'Exams\Controller\Factory\ExamsControllerFactory',
 		),
 	),
 	'router' => array(
@@ -133,6 +135,18 @@ return array(
 									),
 								),
 							),
+							'exams' => array(
+								'type' => 'Zend\Mvc\Router\Http\Segment',
+								'options' => array(
+									'route' => '/exams[/:examId]',
+									'constrains' => array(
+										'examId' => '[0-9]+',
+									),
+									'defaults' => array(
+										'controller' => 'Exams\Controller\Exams',
+									),
+								),
+							),
 						),
 					),
 				),
@@ -143,6 +157,8 @@ return array(
 		'invokables' => array(
 			'Cells\Model\CellsTable'
 				=> 'Cells\Model\CellsTable',
+			'Exams\Model\ExamsTable'
+				=> 'Exams\Model\ExamsTable',
 			'Donors\Model\DonorsTable'
 				=> 'Donors\Model\DonorsTable',
 			'Travels\Model\TravelsTable'
