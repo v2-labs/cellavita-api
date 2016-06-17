@@ -90,7 +90,7 @@ return array(
 								'options' => array(
 									'route' => '/vaccines[/:vaccineId]',
 									'constrains' => array(
-										'vaccineId' => '\w+',
+										'vaccineId' => '[0-9]+',
 									),
 									'defaults' => array(
 										'controller' => 'Vaccines\Controller\Vaccines',
@@ -102,7 +102,7 @@ return array(
 								'options' => array(
 									'route' => '/travels[/:travelId]',
 									'constrains' => array(
-										'travelId' => '\w+',
+										'travelId' => '[0-9]+',
 									),
 									'defaults' => array(
 										'controller' => 'Travels\Controller\Travels',
@@ -114,7 +114,7 @@ return array(
 								'options' => array(
 									'route' => 'addresses[/:addressId]',
 									'constrains' => array(
-										'addressId' => '\w+',
+										'addressId' => '[0-9]+',
 									),
 									'defaults' => array(
 										'controller' => 'Addresses\Controller\Addresses',
@@ -126,7 +126,7 @@ return array(
 								'options' => array(
 									'route' => '/cells[/:cellId]',
 									'constrains' => array(
-										'cellId' => '\w+',
+										'cellId' => '[0-9]+',
 									),
 									'defaults' => array(
 										'controller' => 'Cells\Controller\Cells',
