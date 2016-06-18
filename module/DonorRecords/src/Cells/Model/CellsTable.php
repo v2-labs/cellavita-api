@@ -7,7 +7,7 @@
  * @license   http://framework.zend.com/license/new-bsd New BSD License
  */
 
-namespace Donors\Model;
+namespace Cells\Model;
 
 use Zend\Db\Sql\Select;
 use Zend\Db\Adapter\Adapter;
