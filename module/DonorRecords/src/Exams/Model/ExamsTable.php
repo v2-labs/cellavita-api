@@ -29,7 +29,7 @@ class ExamsTable extends AbstractTableGateway implements AdapterAwareInterface
 		return $rowset->toArray();
 	}
 
-	public function getDonorExamId($id, $examId) {
+	public function getDonorExamID($id, $examId) {
 		$rowset = $this->select(array('exam_id'  => $examId,
 									  'donor_id' => $id));
 

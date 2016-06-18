@@ -29,7 +29,7 @@ class CellsTable extends AbstractTableGateway implements AdapterAwareInterface
 		return $rowset->toArray();
 	}
 
-	public function getDonorCellId($id, $cellId) {
+	public function getDonorCellID($id, $cellId) {
 		$rowset = $this->select(array('cell_id'  => $cellId,
 									  'donor_id' => $id));
 

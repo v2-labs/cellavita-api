@@ -28,7 +28,7 @@ class TelephonesTable extends AbstractTableGateway implements AdapterAwareInterf
 		return $rowset->toArray();
 	}
 
-	public function getDonorPhoneId($id, $phoneId) {
+	public function getDonorPhoneID($id, $phoneId) {
 		$rowset = $this->select(array('donor_id' => $id,
 									  'phone_id' => $phoneId));
 
