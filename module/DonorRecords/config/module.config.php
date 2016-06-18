@@ -114,7 +114,7 @@ return array(
 							'addresses' => array(
 								'type' => 'Zend\Mvc\Router\Http\Segment',
 								'options' => array(
-									'route' => 'addresses[/:addressId]',
+									'route' => '/addresses[/:addressId]',
 									'constrains' => array(
 										'addressId' => '[0-9]+',
 									),
