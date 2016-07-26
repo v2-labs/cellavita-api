@@ -12,8 +12,12 @@ namespace CultureRecords;
 return array(
 	'controllers' => array(
 		'factories' => array(
-			'Cultures\Controller\Index'
+			'Cells\Controller\Cells'
+				=> 'Cells\Controller\Factory\CellsControllerFactory',
+			'Cultures\Controller\Cultures'
 				=> 'Cultures\Controller\Factory\CulturesControllerFactory',
+			'CultureRecords\Controller\Index'
+				=> 'CultureRecords\Controller\Factory\CultureRecordControllerFactory',
 		),
 	),
 	'router' => array(
@@ -143,6 +147,8 @@ return array(
 	),
 	'service_manager' => array(
 		'invokables' => array(
+			'Cells\Model\CellsTable'
+				=> 'Cells\Model\CellsTable',
 			'Cultures\Model\CulturesTable'
 				=> 'Cultures\Model\CulturesTable',
 		),

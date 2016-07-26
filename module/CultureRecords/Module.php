@@ -23,7 +23,9 @@ class Module
 		return array(
 			'Zend\Loader\StandardAutoloader' => array(
 				'namespaces' => array(
-					'Cultures' => __DIR__ . '/src/Cultures',
+					'Cells'          => __DIR__ . '/src/Cells',
+					'Cultures'       => __DIR__ . '/src/Cultures',
+					'CultureRecords' => __DIR__ . '/src/CultureRecords',
 				),
 			),
 		);
