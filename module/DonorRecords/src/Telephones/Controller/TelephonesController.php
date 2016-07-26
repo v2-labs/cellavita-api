@@ -35,10 +35,10 @@ class TelephonesController extends AbstractRestfulController
 		$phoneId = $this->params()->fromRoute('phoneId', null);
 
 		if ($phoneId === null) {
-			$telephoneData = $this->_telephonesTable->getDonorPhones($id);
+			$telephoneData = $this->_telephonesTable->getDonorTelephones($id);
 		}
 		else {
-			$telephoneData = $this->_telephonesTable->getDonorPhoneID($id, $phoneId);
+			$telephoneData = $this->_telephonesTable->getDonorTelephoneID($id, $phoneId);
 		}
 
 		if ($telephoneData !== null && !empty($telephoneData)) {

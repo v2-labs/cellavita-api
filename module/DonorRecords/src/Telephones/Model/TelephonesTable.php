@@ -22,13 +22,13 @@ class TelephonesTable extends AbstractTableGateway implements AdapterAwareInterf
 		$this->initialize();
 	}
 
-	public function getDonorPhones($id) {
+	public function getDonorTelephones($id) {
 		$rowset = $this->select(array('donor_id' => $id));
 
 		return $rowset->toArray();
 	}
 
-	public function getDonorPhoneID($id, $phoneId) {
+	public function getDonorTelephoneID($id, $phoneId) {
 		$rowset = $this->select(array('donor_id' => $id,
 									  'phone_id' => $phoneId));
 

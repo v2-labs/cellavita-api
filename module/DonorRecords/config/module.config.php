@@ -7,13 +7,15 @@
  * @license   http://framework.zend.com/license/new-bsd New BSD License
  */
 
-namespace Donors;
+namespace DonorRecords;
 
 return array(
 	'controllers' => array(
 		'factories' => array(
 			'Donors\Controller\Index'
 				=> 'Donors\Controller\Factory\DonorsControllerFactory',
+			'DonorRecords\Controller\Index'
+				=> 'DonorRecords\Controller\Factory\DonorRecordsControllerFactory',
 			'Telephones\Controller\Telephones'
 				=> 'Telephones\Controller\Factory\TelephonesControllerFactory',
 			'Vaccines\Controller\Vaccines'
@@ -66,6 +68,18 @@ return array(
 						),
 					),
 					'data' => array(
+						'type' => 'Zend\Mvc\Router\Http\Segment',
+						'options' => array(
+							'route' => '/data[/:id]',
+							'constrains' => array(
+								'id' => '[0-9]+',
+							),
+							'defaults' => array(
+								'controller' => 'DonorRecords\Controller\Index',
+							),
+						),
+					),
+					'access' => array(
 						'type' => 'Zend\Mvc\Router\Http\Segment',
 						'options' => array(
 							'route' => '[/:id]',

@@ -23,13 +23,14 @@ class Module
 		return array(
 			'Zend\Loader\StandardAutoloader' => array(
 				'namespaces' => array(
-					'Cells'      => __DIR__ . '/src/Cells',
-					'Exams'      => __DIR__ . '/src/Exams',
-					'Donors'     => __DIR__ . '/src/Donors',
-					'Travels'    => __DIR__ . '/src/Travels',
-					'Vaccines'   => __DIR__ . '/src/Vaccines',
-					'Addresses'  => __DIR__ . '/src/Addresses',
-					'Telephones' => __DIR__ . '/src/Telephones',
+					'Cells'        => __DIR__ . '/src/Cells',
+					'Exams'        => __DIR__ . '/src/Exams',
+					'Donors'       => __DIR__ . '/src/Donors',
+					'Travels'      => __DIR__ . '/src/Travels',
+					'Vaccines'     => __DIR__ . '/src/Vaccines',
+					'Addresses'    => __DIR__ . '/src/Addresses',
+					'Telephones'   => __DIR__ . '/src/Telephones',
+					'DonorRecords' => __DIR__ . '/src/DonorRecords',
 				),
 			),
 		);
