@@ -12,22 +12,20 @@ namespace DonorRecords;
 return array(
 	'controllers' => array(
 		'factories' => array(
-			'Donors\Controller\Index'
-				=> 'Donors\Controller\Factory\DonorsControllerFactory',
-			'DonorRecords\Controller\Index'
-				=> 'DonorRecords\Controller\Factory\DonorRecordsControllerFactory',
-			'Telephones\Controller\Telephones'
-				=> 'Telephones\Controller\Factory\TelephonesControllerFactory',
-			'Vaccines\Controller\Vaccines'
-				=> 'Vaccines\Controller\Factory\VaccinesControllerFactory',
-			'Travels\Controller\Travels'
-				=> 'Travels\Controller\Factory\TravelsControllerFactory',
-			'Addresses\Controller\Addresses'
-				=> 'Addresses\Controller\Factory\AddressesControllerFactory',
-			'Cells\Controller\Cells'
-				=> 'Cells\Controller\Factory\CellsControllerFactory',
 			'Exams\Controller\Exams'
 				=> 'Exams\Controller\Factory\ExamsControllerFactory',
+			'Donors\Controller\Index'
+				=> 'Donors\Controller\Factory\DonorsControllerFactory',
+			'Travels\Controller\Travels'
+				=> 'Travels\Controller\Factory\TravelsControllerFactory',
+			'Vaccines\Controller\Vaccines'
+				=> 'Vaccines\Controller\Factory\VaccinesControllerFactory',
+			'Addresses\Controller\Addresses'
+				=> 'Addresses\Controller\Factory\AddressesControllerFactory',
+			'Telephones\Controller\Telephones'
+				=> 'Telephones\Controller\Factory\TelephonesControllerFactory',
+			'DonorRecords\Controller\Index'
+				=> 'DonorRecords\Controller\Factory\DonorRecordsControllerFactory',
 		),
 	),
 	'router' => array(
@@ -169,8 +167,6 @@ return array(
 	),
 	'service_manager' => array(
 		'invokables' => array(
-			'Cells\Model\CellsTable'
-				=> 'Cells\Model\CellsTable',
 			'Exams\Model\ExamsTable'
 				=> 'Exams\Model\ExamsTable',
 			'Donors\Model\DonorsTable'
