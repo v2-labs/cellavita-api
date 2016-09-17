@@ -12,17 +12,17 @@ namespace DonorRecords;
 return array(
 	'controllers' => array(
 		'factories' => array(
-			'Exams\Controller\Exams'
+			'Exams\Controller\Index'
 				=> 'Exams\Controller\Factory\ExamsControllerFactory',
 			'Donors\Controller\Index'
 				=> 'Donors\Controller\Factory\DonorsControllerFactory',
-			'Travels\Controller\Travels'
+			'Travels\Controller\Index'
 				=> 'Travels\Controller\Factory\TravelsControllerFactory',
-			'Vaccines\Controller\Vaccines'
+			'Vaccines\Controller\Index'
 				=> 'Vaccines\Controller\Factory\VaccinesControllerFactory',
-			'Addresses\Controller\Addresses'
+			'Addresses\Controller\Index'
 				=> 'Addresses\Controller\Factory\AddressesControllerFactory',
-			'Telephones\Controller\Telephones'
+			'Telephones\Controller\Index'
 				=> 'Telephones\Controller\Factory\TelephonesControllerFactory',
 			'DonorRecords\Controller\Index'
 				=> 'DonorRecords\Controller\Factory\DonorRecordsControllerFactory',
@@ -95,7 +95,7 @@ return array(
 										'phoneId' => '[0-9]+',
 									),
 									'defaults' => array(
-										'controller' => 'Telephones\Controller\Telephones',
+										'controller' => 'Telephones\Controller\Index',
 									),
 								),
 							),
@@ -107,7 +107,7 @@ return array(
 										'vaccineId' => '[0-9]+',
 									),
 									'defaults' => array(
-										'controller' => 'Vaccines\Controller\Vaccines',
+										'controller' => 'Vaccines\Controller\Index',
 									),
 								),
 							),
@@ -119,7 +119,7 @@ return array(
 										'travelId' => '[0-9]+',
 									),
 									'defaults' => array(
-										'controller' => 'Travels\Controller\Travels',
+										'controller' => 'Travels\Controller\Index',
 									),
 								),
 							),
@@ -131,7 +131,7 @@ return array(
 										'addressId' => '[0-9]+',
 									),
 									'defaults' => array(
-										'controller' => 'Addresses\Controller\Addresses',
+										'controller' => 'Addresses\Controller\Index',
 									),
 								),
 							),
@@ -143,7 +143,7 @@ return array(
 										'cellId' => '[0-9]+',
 									),
 									'defaults' => array(
-										'controller' => 'Cells\Controller\Cells',
+										'controller' => 'Cells\Controller\Index',
 									),
 								),
 							),
@@ -155,7 +155,7 @@ return array(
 										'examId' => '[0-9]+',
 									),
 									'defaults' => array(
-										'controller' => 'Exams\Controller\Exams',
+										'controller' => 'Exams\Controller\Index',
 									),
 								),
 							),
