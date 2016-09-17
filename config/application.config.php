@@ -10,6 +10,8 @@ return array(
     'modules' => array(
         'Common',
         'DonorRecords',
+        'CultureRecords',
+        #'StageRecords',
     ),
 
     // These are various options for the listeners attached to the ModuleManager
