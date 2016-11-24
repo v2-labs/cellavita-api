@@ -65,18 +65,6 @@ return array(
 							),
 						),
 					),
-					'data' => array(
-						'type' => 'Zend\Mvc\Router\Http\Segment',
-						'options' => array(
-							'route' => '/data[/:id]',
-							'constrains' => array(
-								'id' => '[0-9]+',
-							),
-							'defaults' => array(
-								'controller' => 'DonorRecords\Controller\Index',
-							),
-						),
-					),
 					'access' => array(
 						'type' => 'Zend\Mvc\Router\Http\Segment',
 						'options' => array(
@@ -160,6 +148,18 @@ return array(
 								),
 							),
 						),
+					),
+				),
+			),
+			'data' => array(
+				'type' => 'Zend\Mvc\Router\Http\Segment',
+				'options' => array(
+					'route' => '/v1/donors/data/:id',
+					'constrains' => array(
+						'id' => '[0-9]+',
+					),
+					'defaults' => array(
+						'controller' => 'DonorRecords\Controller\Index',
 					),
 				),
 			),
